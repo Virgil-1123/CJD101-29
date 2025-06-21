@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.noir-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.header-balance {
+    width: 112px; 
+    height: 1px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap:50px;
+}
+.nav-left,.nav-right{
+    display: flex;
+    gap: 50px;
+}
+.nav-item{
+    text-align: center;
+    display: block;
+    border-left:1px solid black;
+    border-right:1px solid black;
+    padding-left:5px;
+    padding-right: 5px;
+    font-size: 20px;
+    transition: opacity 0.3s ease ,transform 0.5s ease;
+    transform: scale(1);
+    cursor: pointer;
+    
+}
+.nav-item:hover{
+    transform: scale(1.1);
+    opacity: 50%;
+}
+
+.nav-logo{
+    transition: opacity 0.3s ease;
+}
+.nav-logo:hover{
+    opacity:50%;
+}
+.index-icon-box {
+    display: flex;
+    gap: 5px;
+}
+    </style>
+</head>
+<body>
+    <header class="noir-header">
+        <div class="header-balance"></div>
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="" class="nav-item">關於我們</a>
+                    <a href="#" class="nav-item">聯絡我們</a>
+                </div>
+
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="LOGO圖">
+                    </a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="#" class="nav-item">最新消息</a>
+                    <a href="#" class="nav-item">商品總覽</a>
+                </div>
+            </nav>
+
+        <div class="index-icon-box">
+            <a class="search" href="">
+                <img src="icon-search.svg" alt="搜尋">
+            </a>
+            <a class="account" href="Acounnt.html">
+                <img src="icon_account.svg" alt="我的帳戶">
+            </a>
+            <a class="cart" href="Cart.html">
+                <img src="icon-cart.svg" alt="購物車">
+            </a>
+        </div> 
+    </header>
+</body>
+</html>

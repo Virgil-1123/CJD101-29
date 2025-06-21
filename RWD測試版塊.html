@@ -6,46 +6,154 @@
     <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品清單</title>
+    <title>Noir.market</title>
     <link rel="stylesheet" href="Swiper11.2.8.css">
     <link rel="stylesheet" href="noir.css">
     <link rel="stylesheet" href="noir-rwd.css">
 </head>
 
+<style>
+        * {
+            box-sizing: border-box;
+        }
+        /* 整個頁籤及內容最外層區塊 */
+        div.tab_container{
+            max-width: 1200px;
+            width: 100%;
+            margin:100px auto;
+        }
+        
+        /* 頁籤區塊 */
+        div.tab_container div.tab_list_block{
+            /* position: relative; */
+            z-index: 2; 
+            display: flex;
+            justify-content: center;
+            background-color: #D9D9D9;
+        }
+        
+        /* 頁籤列表 */
+        /* div.tab_container div.tab_list_block ul.tab_list{
+        } */
+        div.tab_container div.tab_list_block ul.tab_list > li{
+                display: inline-block;
+                border-bottom: 1px solid black;
+                cursor: pointer;
+                font-weight: normal;
+                transition: opacity 0.3s ease ,transform 0.5s ease;
+                transform: scale(1);
+                letter-spacing: 5px;
+                text-decoration: none;
+        }
+        div.tab_container div.tab_list_block ul.tab_list > li:hover{
+                border: none;
+                transform: scale(1.2);
+                opacity: 50%;
+        }
 
+
+
+        div.tab_container div.tab_list_block ul.tab_list > li > a{
+            text-decoration: none;
+            padding: 20px 20px;
+            cursor: pointer;
+            color:black;
+        }
+        
+        /* 畫出底部黑線 */
+        
+        div.tab_container div.tab_list_block ul.tab_list > li > a.-on{
+            color: black;
+        }
+        
+        /* 頁籤內容區塊 */
+        div.tab_container div.tab_contents{
+            position: relative;
+            top: -1px;
+            border-top: none;
+            z-index: 1;
+            background-color: #ADA8A8;
+            opacity: 0.8;
+        }
+        div.tab_container div.tab_contents div.tab{
+            padding: 10px;
+            display: none;
+        }
+        div.tab_container div.tab_contents div.tab.-on{
+            display: block;
+        }
+        .right-btn{
+            background-color: white;
+            border:white;
+        }
+        .left-btn{
+            background-color: white;
+            border:white;
+        }
+        .left-btn svg{
+            cursor: pointer;
+        }
+        .right-btn svg{
+            cursor: pointer;
+        }
+
+
+
+
+
+.product-image-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 設置圖片區域的寬高比，例如 1:1 */
+    height: 0;
+    overflow: hidden;
+    transition: transform 0.5s ease; 
+}
+
+/* 預設和 Hover 圖片的通用背景設定，使用 CSS 變數 */
+.image-primary,
+.image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s ease;
+}
+
+.image-primary {
+    background-image: var(--primary-image); /* 從 product-image-wrapper 獲取變數值 */
+    opacity: 1;
+}
+
+.image-hover {
+    background-image: var(--hover-image); /* 從 product-image-wrapper 獲取變數值 */
+    opacity: 0;
+}
+
+/* Hover 效果 */
+.product-image-link:hover .image-primary {
+    opacity: 0;
+}
+
+.product-image-link:hover .image-hover {
+    opacity: 1;
+}
+
+</style>
+</head>
 <body>
-    <header class="noir-header">
-        <div class="header-balance"></div>
-            <nav class="main-nav">
-                <div class="nav-left">
-                    <a href="About US.html" class="nav-item">關於我們</a>
-                    <a href="#" class="nav-item">聯絡我們</a>
-                </div>
 
-                <div class="nav-logo">
-                    <a href="index.html">
-                        <img src="logo.svg" alt="LOGO圖">
-                    </a>
-                </div>
 
-                <div class="nav-right">
-                    <a href="Latest-news.html" class="nav-item">最新消息</a>
-                    <a href="Merchandise-list.html" class="nav-item">商品總覽</a>
-                </div>
-            </nav>
-
-        <div class="index-icon-box">
-            <a class="search" href="">
-                <img src="icon-search.svg" alt="搜尋">
-            </a>
-            <a class="account" href="Acounnt.html">
-                <img src="icon_account.svg" alt="我的帳戶">
-            </a>
-            <a class="cart" href="Cart.html">
-                <img src="icon-cart.svg" alt="購物車">
-            </a>
-        </div> 
-    </header>
     
 <div class="merchandise-list-board-top">
         <div class="merchandise-list-board-top-pic">
@@ -362,28 +470,6 @@
 
 
 </div>
-        <div class="footer">
-        <div class="footer-content">
-            <div class="footer-content-address">
-                店址:320桃園市中壢區復興路46號9樓
-            </div>
-            <div class="footer-content-business-hour">
-                營業時間:11:00-21:00
-            </div> 
-            <div class="footer-content-rule">
-                購物須知 隱私政策
-            </div>
-            <div class="footer-content-icon">
-                <a href="">
-                    <img src="Line.svg" alt="Line連結"></img></a>
-                <a href="">
-                    <img src="FB.svg" alt="臉書連結">
-                </a>
-                <a href="">
-                    <img src="Instagram.svg" alt="IG連結">
-                </a>
-            </div>
-        </div>
-    </div>
+
 </body>
-</html>
+</html>            

@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>展覽介紹</title>
-    <link rel="stylesheet" href="noir.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir.market</title>
+    <link rel="stylesheet" href="Swiper11.2.8.css">
+    <link rel="stylesheet" href="noir.css">
+    <link rel="stylesheet" href="noir-rwd.css">
 </head>
 <body>
-<div>
-    <div class="noir-header">
-        <div class="label-list">
-                <div class="logo" >
-                    <a href="index.html"><img src="logo.svg" alt="LOGO圖"></a>
-                    </div>
-                    <a class="label-1" href="About US.html">關於我們</a>
-                    <a class="label-2" href="Latest-news.html">最新消息</a>
-                    <a class="label-3" href="Acounnt.html">會員登入</a>
-                    <a class="label-4" href="Merchandise-list.html">Online</a>
-            <div class="icon-list">
-                    <a class="search" href=""><img src="icon-search.svg"></a>
-                    <a class="account" href="Acounnt.html"><img src="icon_account.svg"></a>
-                    <a class="cart" href=""><img src="icon-cart.svg"></a>
-                    </div>
+    <header class="noir-header">
+        <div class="header-balance"></div>
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="About US.html" class="nav-item">關於我們</a>
+                    <a href="" class="nav-item">聯絡我們</a>
                 </div>
-        </div>
-    </div>
+
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="LOGO圖">
+                    </a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="Latest-news.html" class="nav-item">最新消息</a>
+                    <a href="Merchandise-list.html" class="nav-item">商品總覽</a>
+                </div>
+            </nav>
+
+        <div class="index-icon-box">
+            <a class="search" href="">
+                <img src="icon-search.svg" alt="搜尋">
+            </a>
+            <a class="account" href="Acounnt.html">
+                <img src="icon_account.svg" alt="我的帳戶">
+            </a>
+            <a class="cart" href="Cart.html">
+                <img src="icon-cart.svg" alt="購物車">
+            </a>
+        </div> 
+    </header>
+
     <div class="exhibition-board">
+        <div class="exhibition-board-top-flex">
         <div class="exhibition-board-top">
             <div class="exhibition-introduce">展覽介紹</div>
             <div class="exhibition-board-information">
                 <h2>
-                Ann Demeulemeester以詩人的方式詮釋你所不知道的龐克
+                Ann Demeulemeester<br>
+                以詩人的方式詮釋你所不知道的龐克
                 </h2>
                 <p class="exhibition-time">
                 時間:2969.4.1-2969.5.31
                 </p>
-                <br>
                 <p class="exhibition-location">地點:320桃園市中壢區復興路46號9樓
                 </p>
             </div>
         </div>
+    </div>
         <div class="exhibition-board-middle-container">
         <div class="exhibition-board-middle">
             <img class="exhibition-board-middle-img-1"  src="AnnDemeulemeester.png" alt="Ann的照片">
-            <p class="exhibition-photo-caption-1">Photo: Getty Images</p>
             <img class="exhibition-board-middle-img-2" src="AnnDemeuleemester-2013.png" alt="Ann的信">
-            <p class="exhibition-photo-caption-2">Ann Demeulemeester 2013</p>
             <img class="exhibition-board-middle-img-3" src="AnnDemeuleemesterstore.png" alt="Ann在比利時的店">
-            <p class="exhibition-photo-caption-3">Photo:Ann Demeulemeester在比利時安特衛普的時裝店</p>
             <img class="exhibition-board-middle-img-4"src="AnnDemeuleemester-Exhibition.png" alt="AI生的圖">
-            <p class="exhibition-photo-caption-4">Photo:AI</p>
         </div>
     </div>
-</div>
+
         <div class="exhibition-board-bottom"> 
             <p>
                 在開始介紹這位在時裝界享負詩人盛名的傳奇前，我想大家可以問自己一個問題?那就是你們對龐克的認知是什麼，叛逆、不羈、充滿暴戾之氣充其量只是這個文化的外在，但深究其精神內核卻是非常的迷人，它使人們 打破傳統、放浪形骸、遵循本心，這可能是你所不知道的龐克。
@@ -76,7 +90,8 @@
             </p>
         </div>
     </div>
-        <div class="footer">
+</div>
+    <div class="footer">
         <div class="footer-content">
             <div class="footer-content-address">
                 店址:320桃園市中壢區復興路46號9樓
@@ -91,7 +106,7 @@
                 <a href="">
                     <img src="Line.svg" alt="Line連結"></img></a>
                 <a href="">
-                    <img src="FB.svg" alt="臉書連結">
+                    <img src="Google.svg" alt="谷哥連結">
                 </a>
                 <a href="">
                     <img src="Instagram.svg" alt="IG連結">

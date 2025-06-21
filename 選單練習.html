@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir.market</title>
+    <link rel="stylesheet" href="noir.css">
+    <style>
+        .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+<body>
+<label for="filter">Filter:</label>
+<select id="cloth-category" onchange="updateCities()">
+<option value="">商品種類</option>
+<option value="top">top</option>
+<option value="bottom">bottom</option>
+</select>
+
+<label for="sort">Sort:</label>
+<select id="product-categary">  
+<option value="">商品排序</option>
+</select>
+
+<script>
+function updateCities() {
+const filter = document.getElementById("filter").value;
+const sort = document.getElementById("sort");
+  citySelect.innerHTML = '<option value="">選擇商品種類</option>'; // 清空之前的選項
+
+if (province === "guangdong") {
+    addCityOption(citySelect, "guangzhou", "廣州市");
+    addCityOption(citySelect, "shenzhen", "深圳市");
+} else if (province === "jiangsu") {
+    addCityOption(citySelect, "nanjing", "南京市");
+    addCityOption(citySelect, "suzhou", "蘇州市");
+}
+}
+
+function addCityOption(selectElement, value, text) {
+    const option = document.createElement("option");
+    option.value = value;
+    option.text = text;
+    selectElement.add(option);
+}
+</script>
+</body>
+</html>

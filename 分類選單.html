@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-category-box{
+            display: flex;
+            
+        }
+        .product-category-box p{
+            font-size:36px;
+            margin: 0;
+            padding-right: 20px;
+            padding-left: 100px;
+        }
+        .product-category-inlinebox{
+            position: relative;
+            display: inline-block;
+            /* 讓容器只占內容寬度 */
+            
+        }
+        .product-category-box svg{
+            position: absolute;
+            top:50%;
+            right: 10px;
+            width: 16px;
+            transform: translateY(-75%);
+            pointer-events: none; /* 讓點擊箭頭也能觸發下方的select */
+
+
+        }
+        .product-category-select{
+            width: 150px;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            appearance: none;
+            /* 移除預設的箭頭樣式*/
+        }
+    </style>
+</head>
+<body>
+<div class="product-category-box">
+    <p>Sort</p>
+    <div class="product-category-inlinebox">
+        <select class="product-category-select">
+            <option>商品分類</option>
+            <option>Tops</option>
+            <option>Outer</option>
+            <option>Bottoms</option>
+            <option>Accessory</option>
+        </select>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/>
+        </svg>
+    </div>
+    <div class="product-category-box">
+        <p>Filters</p>
+        <div class="product-category-inlinebox">
+    <select class="product-category-select">
+        <option>商品排序</option>
+        <option>價格由高到低</option>
+        <option>價格由低到高</option>
+        <option>上架時間新到舊</option>
+        <option>上架時間舊到新</option>
+    </select>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/>
+    </svg>
+</div>
+</div>
+</div>
+
+</body>
+</html>
