@@ -16,6 +16,7 @@
         * {
             box-sizing: border-box;
         }
+
         /* 整個頁籤及內容最外層區塊 */
         div.tab_container{
             max-width: 1200px;
@@ -149,327 +150,161 @@
     opacity: 1;
 }
 
+
+
+
+
+    .line {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    cursor: pointer;
+    display: block;
+    padding: 16px;
+    position: fixed;
+    z-index: 2;
+    }
+    .line .menu,
+    .line .menu::before,
+    .line .menu::after {
+    /* background-color:  #000000;
+     */
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    transition: background-color ease 0.15s, top ease 0.15s 0.15s, transform ease 0.15s;
+    width: 30px;
+    top:0;
+    }
+    .line .menu {
+    margin: auto 0;
+    }
+    .line .menu::before {
+    top: -6px;
+    }
+
+    .line .menu::after {
+    top: 6px;
+    }
+    /*
+    點選選單變叉叉
+    */
+    #menu:checked + .line .menu {
+    background: transparent;
+    }
+
+    #menu:checked + .line .menu::before {
+    transform: rotate(45deg);
+    }
+
+    #menu:checked + .line .menu::after {
+    transform: rotate(-45deg);
+    }
+
+    #menu:checked + .line .menu::before,
+    #menu:checked + .line .menu::after {
+    top: 0;
+    transition: top ease 0.15s, transform ease 0.15s 0.15s;
+    }
+
+    /*
+    選單開合
+    */
+    #menu:checked ~ .menu-list {
+    width: 200px;
+    }
+
+    .menu-list {
+    width: 60px;
+    height: 100vh;
+    background: #ffffff;
+    padding-top: 60px;
+    position: fixed;
+    z-index: 1;
+    transition: all 0.3s;
+    overflow: hidden;
+    opacity: 80%;
+    }
+    /*
+    選單向外推
+    */
+    .menu-list ul {
+    list-style: none;
+    margin-left: 70px;
+    padding: 0;
+    }
+    .menu-list ul > li {
+    display: block;
+    width: 100px;
+    margin-top: 10px;
+    font-size: 20px;
+    }
+    /*
+    隱藏核許框
+    */
+    input#menu {
+    display: none;
+    }
+
+
+
+
+
+    
+
 </style>
 </head>
 <body>
 
+    <header class="noir-header">
+        <div class="header-balance">
+                    <nav class="nav-box">
+    <input type="checkbox" id="menu">
+    <label for="menu" class="line">
+        <div class="menu"></div>
+    </label>
 
-    
-<div class="merchandise-list-board-top">
-        <div class="merchandise-list-board-top-pic">
-            <img src="Merchandise-pic.png" alt="商品總覽視覺圖">
-        </div>
-</div>
-
-
-<div class="product-category-all">
-    <div class="product-category-box">
-        <p>Sort</p>
-            <div class="product-category-inlinebox">
-                <select class="product-category-select">
-                    <option>商品分類</option>
-                    <option>Tops</option>
-                    <option>Outer</option>
-                    <option>Bottoms</option>
-                    <option>Accessory</option>
-                </select>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                        <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/>
-                    </svg>
-            </div>
-
-            <div class="product-category-box">
-                <p>Filters</p>
-                    <div class="product-category-inlinebox">
-                        <select class="product-category-select">
-                            <option>商品排序</option>
-                            <option>價格高到低</option>
-                            <option>價格低到高</option>
-                            <option>時間新到舊</option>
-                            <option>時間舊到新</option>
-                        </select>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/>
-                            </svg>
-                    </div>
-            </div>
+    <div class="menu-list">
+        <ul>
+        <li><a href="">關於我們</a></li>
+        <li><a href="">聯絡我們</a></li>
+        <li><a href="">最新消息</a></li>
+        <li><a href="">商品總覽</a></li>
+        </ul>
     </div>
+    </nav>
 </div>
-
-
-
-<div class="merchandise-list-board-bottom">
-    <div class="merchandise-board-bottom-container"></div>
-        <div class="merchandise-list-box">
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="About US.html" class="nav-item">關於我們</a>
+                    <a href="#" class="nav-item">聯絡我們</a>
                 </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
+
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="LOGO圖">
                     </a>
-                <div class="add-to-cart-container">
-        <button class="add-to-cart-btn">加入購物車</button>
-    </div>
-
-        </div>
-        
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
                 </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
+
+                <div class="nav-right">
+                    <a href="Latest-news.html" class="nav-item">最新消息</a>
+                    <a href="Merchandise-list.html" class="nav-item">商品總覽</a>
+                </div>
+            </nav>
+
+        <div class="index-icon-box">
+            <a class="search" href="">
+                <img src="icon-search.svg" alt="搜尋">
             </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-    </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
+            <a class="account" href="Acounnt.html">
+                <img src="icon_account.svg" alt="我的帳戶">
             </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
+            <a class="cart" href="Cart.html">
+                <img src="icon-cart.svg" alt="購物車">
             </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-        <div class="merchandise-1th-box">
-            <a href="product-details.html" class="product-image-link">
-                <div class="product-image-wrapper"
-                    style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                        <div class="image-primary"></div>
-                        <div class="image-hover"></div>
-                </div>
-                        <p class="merchandise-1th-band">Lad Musician</p>
-                        <p class="merchandise-1th-name">西裝外套</p>
-                        <p class="merchandise-1th-price">$7,000</p>
-            </a>
-            <div class="add-to-cart-container">
-                <button class="add-to-cart-btn">加入購物車</button>
-            </div>
-        </div>
-
-
-            <div class="merchandise-1th-box">
-                <a href="product-details.html" class="product-image-link">
-                    <div class="product-image-wrapper"
-                        style="--primary-image: url('Ladmusician2024SS-Photoroom.jpg'); --hover-image: url('Ladmusician2019-Photoroom.jpg');">
-                            <div class="image-primary"></div>
-                            <div class="image-hover"></div>
-                    </div>
-                            <p class="merchandise-1th-band">Lad Musician</p>
-                            <p class="merchandise-1th-name">西裝外套</p>
-                            <p class="merchandise-1th-price">$7,000</p>
-                </a>
-                <div class="add-to-cart-container">
-                    <button class="add-to-cart-btn">加入購物車</button>
-                </div>
-                
-            </div>
-            
-        <div class="pagination-merchandise">
-                <span>1</span>
-                <span>2</span>
-                <span>4</span>
-                <span>3</span>
-                <button>Next</button>
-                </div>
-    </div>
-
-    
-
-
-
-
-</div>
+        </div> 
+    </header>
 
 </body>
 </html>            

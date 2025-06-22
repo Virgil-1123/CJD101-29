@@ -3,8 +3,9 @@
     box-sizing: border-box;
 }
 body{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+
 }
 /* .noir-header{
     width: 100%;
@@ -17,6 +18,9 @@ a{
 html{
     padding: 0;
     margin: 0;
+
+
+
 }
 
 
@@ -27,6 +31,12 @@ html{
     justify-content: space-between; 
     align-items: center;
     width: 100%;
+    max-width: 1920px;
+    margin:0 auto;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+    top:0;
 }
 
 .header-balance {
@@ -39,6 +49,7 @@ html{
     justify-content: center; 
     align-items: center;
     gap:50px;
+    flex-grow: 1;
 }
 .nav-left,.nav-right{
     display: flex;
@@ -73,6 +84,103 @@ html{
     display: flex;
     gap: 5px;
 }
+
+    .line {
+    width:24px;
+    height: 24px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+    padding: 30px;
+    position: fixed;
+    z-index: 2;
+    }
+    .line .menu,
+    .line .menu::before,
+    .line .menu::after {
+    /* background-color:  #000000;
+     */
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    transition: background-color ease 0.15s, top ease 0.15s 0.15s, transform ease 0.15s;
+    width: 30px;
+    top:0;
+    }
+    .line .menu {
+    margin: auto 0;
+    }
+    .line .menu::before {
+    top: -6px;
+    }
+
+    .line .menu::after {
+    top: 6px;
+    }
+    /*
+    點選選單變叉叉
+    */
+    #menu:checked + .line .menu {
+    background: transparent;
+    }
+
+    #menu:checked + .line .menu::before {
+    transform: rotate(45deg);
+    }
+
+    #menu:checked + .line .menu::after {
+    transform: rotate(-45deg);
+    }
+
+    #menu:checked + .line .menu::before,
+    #menu:checked + .line .menu::after {
+    top: 0;
+    transition: top ease 0.15s, transform ease 0.15s 0.15s;
+    }
+
+    /*
+    選單開合
+    */
+    #menu:checked ~ .menu-list {
+    width: 200px;
+    }
+
+    .menu-list {
+    width: 0.1px;
+    height: 100vh;
+    background: white;
+    padding-top: 60px;
+    position: fixed;
+    z-index: 1;
+    transition: all 0.3s;
+    overflow: hidden;
+    opacity: 90%;
+    transform: translateY(-50px);
+    }
+    /*
+    選單向外推
+    */
+    .menu-list ul {
+    list-style: none;
+    margin-left: 70px;
+    padding: 0;
+    }
+    .menu-list ul > li {
+    display: block;
+    width: 100px;
+    margin-top: 10px;
+    font-size: 20px;
+    }
+    /*
+    隱藏核許框
+    */
+    input#menu {
+    display: none;
+    }
+
+
+
 
 
 
@@ -109,7 +217,7 @@ html{
     margin: auto;
 }
 .banner{
-    margin-top: auto;
+    margin-top: 100px;
     width: 100%;
 }
 .banner-img img {
@@ -228,14 +336,14 @@ html{
     letter-spacing: 5px;
 
 }
-.line{
+.section-divider-line{
     flex-grow: 1;
-    height: 1.5px;
+    height: 1.5px;  
 }
-.section-divider .line:first-child{
+.section-divider .section-divider-line:first-child{
     background-image:linear-gradient(to right, transparent ,rgba(0,0,0,0.5));
 }
-.section-divider .line:last-child{
+.section-divider .section-divider-line:last-child{
     background-image: linear-gradient(to left,transparent,rgba(0,0,0,1));
 }
 .line-container{
@@ -362,13 +470,22 @@ html{
 }
 
 .exhibition-pic-box {
-    width: 100%;
+    width: 60%;
     height: auto;
     /* background-color: white; */
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     display: flex;
+    flex-direction: column;
     
+}
+.exhibition-box-left{
+    display: flex;
+    justify-content: center;
+}
+.exhibition-box-right{
+    display: flex;
+    justify-content: center;
 }
 .exhibition-pic-box-balance{
     width: 80%;
@@ -438,7 +555,7 @@ html{
         width: 1.5px;
         top:30px;
         bottom: 0;
-        left: 5px;
+        left: -5px;
         background-image: linear-gradient(to top , rgb(0, 0, 0) , rgba(0, 0, 0, 0.217) 50% ,rgba(0,0,0,0) 100% );
         z-index: 1;
     }
@@ -504,11 +621,9 @@ html{
     }
 .index-about-us{
         flex-grow: 1;
-        text-align: start;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
         position: relative;
         }
 .index-about-us::before{
@@ -583,7 +698,7 @@ html{
         margin-top: 100px;
         justify-content: center;
         position: relative;
-        margin: 100px auto 0 auto;
+        margin: 150px auto 0 auto;
     }
 .exhibition-board-top-flex{
         display: flex;
@@ -758,17 +873,22 @@ html{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 100px;
+    flex-direction: column;
+    
 }
 .merchandise-list-board-top-pic{
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    background-color: black;
 }
 .merchandise-list-board-top-pic img{
     max-width: 100%;
     display: block;
-    margin: 0 auto;
+
 }
 
 .merchandise-list-board-bottom{
@@ -935,23 +1055,27 @@ html{
 
         .product-category-all{
             width: 100%;
-            max-width: 1200px;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .product-category-box{
             display: flex;
-            justify-content: end;
+            justify-content: center;
             position: relative;
+            max-width: 1920px;
             
         }
         .product-category-box::before{
             content: "";
             position: absolute;
-            width: 80%;
+            width:70%;
             height: 1.5px;
             bottom: 0;
             right: 0;
             background-color: black;
+            z-index: 1 ;
         }
         .product-category-box p{
             font-size:36px;
@@ -983,6 +1107,8 @@ html{
             appearance: none;
             vertical-align: bottom;
             /* 移除預設的箭頭樣式*/
+            border: 1.5px solid black;
+            border-bottom: transparent;
             
         }
 
@@ -990,7 +1116,7 @@ html{
 
 .about-us-board{
     max-width: 1200px;
-    margin:50px auto; 
+    margin:100px auto; 
 }
 .about-us-board-top{
     display: grid;
@@ -1147,6 +1273,7 @@ html{
     justify-content: center;
     width: 100%;
     height: auto;
+    margin-top: 100px;
 }
 .product-detail-board-top{
     display: flex;
@@ -1441,6 +1568,7 @@ html{
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    margin-top: 100px;
 }
 .latest-news-board{
     display: flex;

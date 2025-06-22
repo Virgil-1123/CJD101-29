@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購物車</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="noir.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir.market</title>
+    <link rel="stylesheet" href="Swiper11.2.8.css">
+    <link rel="stylesheet" href="noir.css">
+    <link rel="stylesheet" href="noir-rwd.css">
 </head>
+
 <body>
-    <div>
-    <div class="noir-header">
-        <div class="label-list">
-                <div class="logo" >
-                    <a href="index.html"><img src="logo.svg" alt="LOGO圖"></a>
-                    </div>
-                    <a class="label-1" href="About US.html">關於我們</a>
-                    <a class="label-2" href="Latest-news.html">最新消息</a>
-                    <a class="label-3" href="Acounnt.html">會員中心</a>
-                    <a class="label-4" href="Merchandise-list.html">Online</a>
-            <div class="icon-list">
-                    <a class="search" href=""><img src="icon-search.svg"></a>
-                        
-                    <a class="account" href="Acounnt.html"><img src="icon_account.svg"></a>
-                    <a class="cart" href="Cart.html"><img src="icon-cart.svg"></a>
-                    </div>
-                </div>
-        </div>
+    <header class="noir-header">
+        <div class="header-balance">
+                    <nav class="nav-box">
+    <input type="checkbox" id="menu">
+    <label for="menu" class="line">
+        <div class="menu"></div>
+    </label>
+
+    <div class="menu-list">
+        <ul>
+        <li><a href="">關於我們</a></li>
+        <li><a href="">聯絡我們</a></li>
+        <li><a href="">最新消息</a></li>
+        <li><a href="">商品總覽</a></li>
+        </ul>
     </div>
+    </nav>
+</div>
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="About US.html" class="nav-item">關於我們</a>
+                    <a href="#" class="nav-item">聯絡我們</a>
+                </div>
+
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="LOGO圖">
+                    </a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="Latest-news.html" class="nav-item">最新消息</a>
+                    <a href="Merchandise-list.html" class="nav-item">商品總覽</a>
+                </div>
+            </nav>
+
+        <div class="index-icon-box">
+            <a class="search" href="">
+                <img src="icon-search.svg" alt="搜尋">
+            </a>
+            <a class="account" href="Acounnt.html">
+                <img src="icon_account.svg" alt="我的帳戶">
+            </a>
+            <a class="cart" href="Cart.html">
+                <img src="icon-cart.svg" alt="購物車">
+            </a>
+        </div> 
+    </header>
+
+
     <div class="cart-board">
         <table>
             <thead>

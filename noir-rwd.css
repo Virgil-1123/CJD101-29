@@ -57,6 +57,12 @@
     /* /商品清單/ */
     .product-category-box::before{
         width: 95%;
+        right: 0;
+    }
+    /* 商品葉面 */
+    .relative-title::before{
+        width: 50%;
+        left: 0;
     }
 
 }
@@ -137,6 +143,12 @@
         align-items: start; 
         justify-content: start; 
     }
+    .index-about-us p{
+        margin: 0 30px;
+    }
+    .index-about-us a{
+        margin: 0 30px;
+    }
 
 }
 
@@ -215,9 +227,9 @@
     }
 
     .introduce-chinese::before {
-        bottom: -20px; 
-        width: 80%; 
-        left: 10%; 
+        /* bottom: -20px;  */
+        width: 150%; 
+        left: -25%; 
     }
 
     .shop-now-btn {
@@ -360,9 +372,27 @@
         .product-category-box > p{
             font-size: 30px;
         }
+
+            /*Header*/
+    .line .menu,
+    .line .menu::before,
+    .line .menu::after {
+        background-color: #000000;
+    }
+
+    /* .header-balance{
+        display: none;
+    } */
+
+    .nav-item{
+        display: none;
+    }
+
+    .nav-list{
+        /* display: block; */
+    }
+
 }
-
-
 
 
 
