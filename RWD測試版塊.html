@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="noir-rwd.css">
 </head>
 
-<style>
+        <style>
         * {
             box-sizing: border-box;
         }
-
         /* 整個頁籤及內容最外層區塊 */
         div.tab_container{
             max-width: 1200px;
@@ -83,178 +82,51 @@
         div.tab_container div.tab_contents div.tab.-on{
             display: block;
         }
-        .right-btn{
-            background-color: white;
-            border:white;
-        }
-        .left-btn{
-            background-color: white;
-            border:white;
-        }
-        .left-btn svg{
-            cursor: pointer;
-        }
-        .right-btn svg{
-            cursor: pointer;
-        }
 
 
-
-
-
-.product-image-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+        /* 圖片容器：用於定位圖片，如果圖片本身不是 display: block */
+.image-container {
+    position: relative; /* 關鍵：如果放大鏡要相對於此容器定位 */
+    display: inline-block; /* 確保容器只包圍圖片，不會佔滿整行 */
+    /* 您原有的 .product-detail-board-pic-box 樣式會合併進來 */
 }
 
-.product-image-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* 設置圖片區域的寬高比，例如 1:1 */
-    height: 0;
-    overflow: hidden;
-    transition: transform 0.5s ease; 
-}
-
-/* 預設和 Hover 圖片的通用背景設定，使用 CSS 變數 */
-.image-primary,
-.image-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
+/* 放大鏡區域的樣式 */
+.zoom-area {
+    position: absolute; /* 讓它相對於視窗固定，可以在整個螢幕上移動 */
+    width: 200px;  /* 放大鏡的寬度 */
+    height: 200px; /* 放大鏡的高度 */
+    border: 1px solid #ccc; /* 邊框 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* 陰影 */
     background-repeat: no-repeat;
-    transition: opacity 0.5s ease;
-}
-
-.image-primary {
-    background-image: var(--primary-image); /* 從 product-image-wrapper 獲取變數值 */
-    opacity: 1;
-}
-
-.image-hover {
-    background-image: var(--hover-image); /* 從 product-image-wrapper 獲取變數值 */
     opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* 平滑顯示/隱藏動畫 */
+    pointer-events: none; /* 讓滑鼠可以穿透放大鏡，繼續觸發下方圖片的事件 */
+    z-index: 1000; /* 確保在最上層 */
+    border-radius: 50%; /* 如果想要圓形放大鏡 */
+    overflow: hidden; /* 如果是圓形，確保內容不溢出 */
 }
 
-/* Hover 效果 */
-.product-image-link:hover .image-primary {
-    opacity: 0;
-}
-
-.product-image-link:hover .image-hover {
+/* 放大鏡顯示時的樣式 */
+.zoom-area.is-active {
     opacity: 1;
+    visibility: visible;
 }
 
+/* 確保原始圖片不會因為 fixed 定位而受到影響 */
+#main_pic { /* 將 #image 改為 #main_pic */
+    display: block; /* 確保圖片是區塊元素，避免底部空白 */
+    max-width: 100%; /* 防止圖片過大 */
+    height: auto;
+    cursor: crosshair; /* 放大鏡的滑鼠樣式 */
+}
+
+        </style>
 
 
-
-
-    .line {
-    width: 30px;
-    height: 30px;
-    background: #fff;
-    cursor: pointer;
-    display: block;
-    padding: 16px;
-    position: fixed;
-    z-index: 2;
-    }
-    .line .menu,
-    .line .menu::before,
-    .line .menu::after {
-    /* background-color:  #000000;
-     */
-    content: "";
-    display: block;
-    height: 1px;
-    position: absolute;
-    transition: background-color ease 0.15s, top ease 0.15s 0.15s, transform ease 0.15s;
-    width: 30px;
-    top:0;
-    }
-    .line .menu {
-    margin: auto 0;
-    }
-    .line .menu::before {
-    top: -6px;
-    }
-
-    .line .menu::after {
-    top: 6px;
-    }
-    /*
-    點選選單變叉叉
-    */
-    #menu:checked + .line .menu {
-    background: transparent;
-    }
-
-    #menu:checked + .line .menu::before {
-    transform: rotate(45deg);
-    }
-
-    #menu:checked + .line .menu::after {
-    transform: rotate(-45deg);
-    }
-
-    #menu:checked + .line .menu::before,
-    #menu:checked + .line .menu::after {
-    top: 0;
-    transition: top ease 0.15s, transform ease 0.15s 0.15s;
-    }
-
-    /*
-    選單開合
-    */
-    #menu:checked ~ .menu-list {
-    width: 200px;
-    }
-
-    .menu-list {
-    width: 60px;
-    height: 100vh;
-    background: #ffffff;
-    padding-top: 60px;
-    position: fixed;
-    z-index: 1;
-    transition: all 0.3s;
-    overflow: hidden;
-    opacity: 80%;
-    }
-    /*
-    選單向外推
-    */
-    .menu-list ul {
-    list-style: none;
-    margin-left: 70px;
-    padding: 0;
-    }
-    .menu-list ul > li {
-    display: block;
-    width: 100px;
-    margin-top: 10px;
-    font-size: 20px;
-    }
-    /*
-    隱藏核許框
-    */
-    input#menu {
-    display: none;
-    }
-
-
-
-
-
-    
-
-</style>
 </head>
+
 <body>
 
     <header class="noir-header">
@@ -306,5 +178,463 @@
         </div> 
     </header>
 
+
+
+<div class="product-detail-board">
+    <div class="product-detail-board-top">
+<div class="product-detail-board-top-left">
+    <div class="product-detail-board-pic-box image-container"> <img id="main_pic" src="fakeimg.png" alt="單寧外套">
+        <div id="showBox" class="zoom-area"></div> </div>
+
+    <div class="product-detail-board-other-pics">
+        <div class="product-other-pic-box">
+            <img class="minor_pic" src="fakeimg.png" data-full-image="banner.jpg" alt="商品細節">
+            <img class="minor_pic" src="product-other-pic-box.png" data-full-image="{07CE201A-49DC-46B3-BC94-ABB41F17FF55}.jpg" alt="商品細節">
+            <img class="minor_pic" src="product-other-pic-box.png" data-full-image="{339D5A35-F2C4-4ACA-8C26-10ABFCBDCC49}.jpg" alt="商品細節">
+            <img class="minor_pic" src="product-other-pic-box.png" data-full-image="{1F1AE397-F06C-4BFE-B9DB-56B0C0709EF5}.jpg" alt="商品細節">
+        </div>
+    </div>
+</div>
+
+                <div class="product-detail-board-top-right">
+            <h2>Lad Musician Denim Wonder Land Shirt</h2>
+            <!-- <p class="product-detail-name
+            ">Denim Wonder Land Shirt</p> -->
+            <p class="product-detail-size">Size:M</p>
+            <p class="product-detail-price">$7,000</p>
+
+            <div class="quantity-selector">
+            <button class="quantity-minus" aria-label="減少數量">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="1">
+            <button class="quantity-plus" aria-label="增加數量">+</button>
+            </div>
+
+            <div class="button-box">
+            <button class="add-to-cart-button">
+                加入購物車
+            </button>
+<svg id="heart"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+
+        </div>
+
+            <p class="product-shoulder">肩寬Shoulder：41cm</p>
+            <p class="product-pit">胸寬Pit to pit：47cm</p>
+            <p class="product-length">衣長Length：67/69cm</p>
+            <p class="product-sleeve">袖長Sleeve：31cm</p>
+            
+    </div>
+    
+    </div>
+</div>
+
+
+        <div class="tab_container">
+            <div class="tab_list_block">
+                <ul class="tab_list">
+                    <li>
+                        <a href="#" data-target="tab1" class="tab">商品介紹</a>
+                    </li>
+                    <li>
+                        <a href="#" data-target="tab2" class="tab -on">注意事項</a>
+                    </li>
+                    <li>
+                        <a href="#" data-target="tab3" class="tab">退換須知</a>
+                    </li>
+                </ul>
+        </div>
+
+        <div class="tab_contents">
+
+            <div class="tab tab1 -on">
+            肩寬Shoulder：41cm<br>
+
+            胸寬Pit to pit：47cm<br>
+
+            衣長Length：67/69cm<br>
+
+            袖長Sleeve：31cm
+            
+            </div>
+
+            <div class="tab tab2">
+            注意事項<br>
+• 選擇超商取貨付款未取件時將加入黑名單請留意到貨通知。<br>
+• 網站商品皆為早期老品，二手選品必定有使用上的痕跡，這都是歲月遺留下來的回憶，若無法接受者，請考慮清楚再下單。<br>
+• 商品已洗滌處理，請放心購入。<br>
+• 因螢幕彩度不同，照片呈現會有些微色差，均以實品為主。<br>
+• 請詳細參考產品尺碼數據，匯款及下訂單後商品一律不做退款及退換貨處理。<br>
+• 非瑕疵說明：鈕釦輕微鬆動、車縫線頭、未剪開之釦眼或口袋，經商品說明人為使用所造成的破損或下水之褪色 / 染色。<br>
+• 退換商品必須保持原樣、未下水。寄回後，如有任何異味或是人為使用痕跡...等，恕不予退換貨。<br>
+• 若商品與想像不符、不合適、色差、想更換尺碼等問題恕不提供退換貨。
+            </div>
+
+            <div class="tab tab3">
+            運送及退換貨須知<br><br>
+            
+
+親愛的顧客，感謝您選擇我們的網站購物！為了讓您的購物體驗更為順利，請您詳閱以下運送及退換貨的相關規定：<br><br>
+
+1. 運送範圍
+我們提供台灣至國際的運送服務。請注意，所有國際運送可能會因目的地國家不同而有所延遲，具體運送時間請依照您所在地區的配送服務商所提供的時間為準。<br><br>
+
+2. 退換貨規範
+我們致力於為您提供優質商品，並希望您對購買的商品感到滿意。若您對收到的商品有任何疑慮，請參考以下退換貨條件：<br><br>
+
+免費退換貨情況：
+商品尺寸丈量錯誤 寄錯商品（例如您訂購的商品與實際收到的商品不符）
+若符合以上條件，您可享有免費退貨服務，並且我們會負擔回程運費。<br><br>
+
+非免費退換貨情況：
+若您因其他原因（例如改變心意、商品不符合個人需求等）要求退換貨，您需負擔運費並按照退換貨政策進行處理。<br><br>
+
+3. 退貨流程
+請您在收到商品後7天內聯絡我們的客服部門，提供您的訂單編號、問題商品的照片以及退換貨的原因。
+我們會在確認退換貨的條件後，提供具體的退換貨指示與地址。
+商品必須保持未使用、未拆封及完整包裝，並附上購買憑證。<br><br>
+
+4. 注意事項
+商品退換時，請確保包裝完整，避免商品損壞。
+若退貨商品符合免費退貨條件，我們將安排退款至原付款方式。
+若您對退換貨政策有任何疑問，請隨時聯絡我們的客服團隊，我們將竭誠為您服務。
+
+            </div>
+        </div>
+
+        </div>
+
+
+    
+<h3 class="relative-title">關聯商品</h3>
+    <div class="product-board-bottom swiper" id="product-board-bottom">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="fake-merchandise.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="fake-merchandise.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="fake-merchandise.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="fake-merchandise.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="fake-merchandise.png" alt="">
+            </div>
+        </div> <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    
+
+
+    <!-- <div class="footer">
+        <div class="footer-content">
+            <div class="footer-content-address">
+                店址:320桃園市中壢區復興路46號9樓
+            </div>
+            <div class="footer-content-business-hour">
+                營業時間:11:00-21:00
+            </div> 
+            <div class="footer-content-rule">
+                購物須知 隱私政策
+            </div>
+            <div class="footer-content-icon">
+                <a href="">
+                    <img src="Line.svg" alt="Line連結"></img></a>
+                <a href="">
+                    <img src="Google.svg" alt="谷哥連結">
+                </a>
+                <a href="">
+                    <img src="Instagram.svg" alt="IG連結">
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+<script src="Swiper11.2.8.js"></script>
+
+
+
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const mySwiper = new Swiper('.swiper', { // 注意：這裡的 .swiper 會選取到 class="swiper" 的元素
+            // 基礎設定
+            direction: 'horizontal',
+            loop: true, // 是否循環播放
+            // spaceBetween: 20, // 預設的圖片間距，可以在斷點中覆蓋
+
+            // 分頁器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // 導航箭頭
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 響應式斷點設定
+            breakpoints: {
+                // 當視窗寬度 < 768px 時 (手機模式)
+                0: { // 0px 到 767px
+                    slidesPerView: 2, // 顯示 2 張圖片
+                    spaceBetween: 10, // 手機模式下間距可以小一點
+                    enabled: true, // 確保 Swiper 功能是啟用的
+                },
+                // 當視窗寬度 >= 768px 時 (桌機模式)
+                768: {
+                    slidesPerView: 4, // 顯示 4 張圖片
+                    spaceBetween: 20, // 桌機模式下間距
+                    enabled: true, // 確保 Swiper 功能是啟用的
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 獲取大圖元素
+    const main_pic = document.getElementById('main_pic');
+
+    // 獲取所有小圖元素
+    const minor_pics = document.querySelectorAll('.minor_pic');
+
+    // 遍歷所有小圖，為每個小圖添加點擊事件監聽器
+    minor_pics.forEach(minor_pic => {
+        minor_pic.addEventListener('click', function() {
+            // 從被點擊的小圖中獲取其 data-full-image 屬性的值
+            const fullImageUrl = this.getAttribute('data-full-image');
+
+            // 將大圖的 src 屬性更新為獲取到的完整圖片路徑
+            if (main_pic && fullImageUrl) {
+                main_pic.src = fullImageUrl;
+
+                // 可選：為當前被選中的縮圖添加一個視覺上的效果 (例如邊框)
+                // 先移除所有縮圖的 'active' 類別
+                minor_pics.forEach(t => t.classList.remove('active'));
+                // 為當前被點擊的縮圖添加 'active' 類別
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // 可選：初始化時為第一個縮圖添加 'active' 類別
+    if (minor_pics.length > 0) {
+        minor_pics[0].classList.add('active');
+    }
+});
+</script>
+
+
+
+        <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const heart = document.getElementById('heart');
+
+        heart.addEventListener('click', function() {
+        heart.classList.toggle('clicked'); // 切換 'clicked' class
+    });
+});
+
+</script>
+
+
+
+<script>
+        document.addEventListener("DOMContentLoaded",function(){
+            
+            let all_a = document.querySelectorAll("a.tab");
+            // console.log(all_a);
+            for(let i = 0;i<all_a.length;i++){
+                // console.log(1);
+                all_a[i].addEventListener("click",function(e){
+                    e.preventDefault();
+                    
+                    all_a.forEach(function(item, k){
+                        // console.log(k);
+                        item.classList.remove("-on");
+                    });
+                    
+                    this.classList.add("-on");
+
+
+                    // 下半部:內容有關
+                    let content_div = this.closest("div.tab_container").querySelectorAll("div.tab");
+                    // console.log(content_div);
+                    
+                    content_div.forEach(function(item, k){
+                        // console.log(k);
+                        item.classList.remove("-on");
+                    });
+                    
+                    let target_div = this.getAttribute("data-target");
+
+                    document.querySelector("div.tab." + target_div).classList.add("-on");
+
+                })
+            }
+
+        });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    let scale = 2; // 放大倍数
+    let isZoomAreaVisible = false; // 判斷放大鏡要不要出現
+
+    const target = document.getElementById('main_pic');
+    const zoomArea = document.getElementById('showBox');
+    const imageContainer = document.querySelector('.product-detail-board-pic-box'); // 新增：獲取圖片容器
+
+    if (!target || !zoomArea || !imageContainer) { // 檢查 imageContainer
+        console.error('主圖片、放大區域或圖片容器的 DOM 元素未找到。請檢查 HTML ID 和類別。');
+        return;
+    }
+
+    let targetRect; // 圖片的尺寸和位置
+    let targetWidth;
+    let targetHeight;
+    let zoomRect;   // 放大區域的尺寸
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // --- 初始化和事件監聽 ---
+
+    function initializeZoomArea() {
+        updateDimensions(); // 確保獲取到最新的尺寸
+
+        if (target.src && target.src !== '') {
+            zoomArea.style.backgroundImage = 'url(' + target.src + ')';
+            zoomArea.style.backgroundSize = (targetWidth * scale) + 'px ' + (targetHeight * scale) + 'px';
+        } else {
+            console.warn('主圖片 src 為空，無法設定放大鏡背景。');
+        }
+    }
+
+    target.onload = initializeZoomArea;
+    if (target.complete) {
+        initializeZoomArea();
+    }
+
+    window.addEventListener('resize', updateDimensions);
+
+    target.addEventListener('mousemove', zoomImgMouseMove);
+    target.addEventListener('mouseenter', zoomImgMouseEnter);
+    target.addEventListener('mouseleave', zoomImgMouseLeave);
+
+    // --- 事件處理函數 ---
+    function updateDimensions() {
+        if (target.width === 0 || target.height === 0) {
+            console.warn('圖片尺寸為零，延遲獲取尺寸...');
+            setTimeout(updateDimensions, 100);
+            return;
+        }
+        targetRect = target.getBoundingClientRect(); // 這是圖片在視窗中的絕對位置
+        targetWidth = targetRect.width;
+        targetHeight = targetRect.height;
+        zoomRect = zoomArea.getBoundingClientRect();
+    }
+
+    function zoomImgMouseMove(e) {
+        // e.offsetX 和 e.offsetY 已經是相對於事件目標 (target, 即 #main_pic) 的座標
+        mouseX = e.offsetX;
+        mouseY = e.offsetY;
+        requestAnimationFrame(updateZoomArea);
+    }
+
+    function zoomImgMouseEnter() {
+        isZoomAreaVisible = true;
+        zoomArea.classList.add('is-active');
+        updateDimensions();
+    }
+
+    function zoomImgMouseLeave() {
+        isZoomAreaVisible = false;
+        zoomArea.classList.remove('is-active');
+    }
+
+    function updateZoomArea() {
+        if (!isZoomAreaVisible) {
+            return;
+        }
+
+        // 計算背景圖片的定位 (保持不變)
+        let bgPosX = -(mouseX * scale - zoomRect.width / 2);
+        let bgPosY = -(mouseY * scale - zoomRect.height / 2);
+
+        const maxBgPosX = 0;
+        const minBgPosX = -(targetWidth * scale - zoomRect.width);
+        const maxBgPosY = 0;
+        const minBgPosY = -(targetHeight * scale - zoomRect.height);
+
+        bgPosX = Math.max(minBgPosX, Math.min(maxBgPosX, bgPosX));
+        bgPosY = Math.max(minBgPosY, Math.min(maxBgPosY, bgPosY));
+
+        zoomArea.style.backgroundPosition = `${bgPosX}px ${bgPosY}px`;
+
+        // 計算放大鏡本身的絕對定位 (相對於父容器 .product-detail-board-pic-box)
+        // 放大鏡的中心與滑鼠在圖片上的位置對齊
+        let zoomAreaLeft = mouseX - zoomRect.width / 2;
+        let zoomAreaTop = mouseY - zoomRect.height / 2;
+
+        // 限制放大鏡的移動範圍，使其保持在圖片邊界內
+        // 最左邊不能小於0
+        zoomAreaLeft = Math.max(0, zoomAreaLeft);
+        // 最右邊不能超出圖片寬度 - 放大鏡寬度
+        zoomAreaLeft = Math.min(targetWidth - zoomRect.width, zoomAreaLeft);
+
+        // 最上邊不能小於0
+        zoomAreaTop = Math.max(0, zoomAreaTop);
+        // 最下邊不能超出圖片高度 - 放大鏡高度
+        zoomAreaTop = Math.min(targetHeight - zoomRect.height, zoomAreaTop);
+
+        zoomArea.style.left = `${zoomAreaLeft}px`;
+        zoomArea.style.top = `${zoomAreaTop}px`;
+    }
+
+    // 綁定 minor_pic 點擊事件 (保持不變)
+    const mainPic = document.getElementById('main_pic');
+    const minorPicsContainer = document.querySelector('.product-detail-board-other-pics .product-other-pic-box');
+
+    if (minorPicsContainer && mainPic) {
+        minorPicsContainer.addEventListener('click', (e) => {
+            const clickedImg = e.target.closest('.minor_pic');
+            if (clickedImg) {
+                const fullImageUrl = clickedImg.dataset.fullImage;
+                if (fullImageUrl) {
+                    mainPic.src = fullImageUrl;
+                    mainPic.onload = function() {
+                        initializeZoomArea();
+                        mainPic.onload = null;
+                    };
+                    if (mainPic.complete) {
+                        mainPic.onload();
+                    }
+                } else {
+                    console.warn('點擊的 minor_pic 沒有 data-full-image 屬性或值為空。');
+                }
+            }
+        });
+    }
+});
+
+</script>
+
+
 </body>
-</html>            
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method="get" class="contact-us">
+    <div class="name-box">
+        <input type="text" name="name" id="name" placeholder="姓名:" required />
+    </div>
+
+    <div class="phone-number-box">
+        <label for="phone-number">連絡電話: </label>
+        <input type="text" name="phone-number" id="phone-number" inputmode="tel" pattern="[0-9]{10}" title="請輸入電話號碼10位數字，不含符號" required />
+    </div>
+
+    <div class="e-mail-box">
+        <label for="email">電子郵件: </label>
+        <input type="email" name="email" id="email" required />
+    </div>
+
+    <div class="order-number-box">
+        <label for="order-number">訂單編號: </label>
+        <input type="text" name="order-number" id="order-number" pattern="[A-Za-z0-9]{6,10}" title="請輸入有效的訂單編號，可包含英文大小寫及數字，長度介於6到10字元" required />
+    </div>
+
+    <div class="submit-box">
+        <input type="submit" value="送出" />
+    </div>
+    </form>
+
+</body>
+</html>

@@ -56,7 +56,7 @@
 
     /* /商品清單/ */
     .product-category-box::before{
-        width: 95%;
+        width: 70%;
         right: 0;
     }
     /* 商品葉面 */
@@ -366,11 +366,27 @@
     }
     
         /* 商品清單 */
+        .product-category-all{
+            margin-left: 0;
+            margin-right: 0;
+        }
         .product-category-select{
             font-size: 20px;
+            color: black;
+        }
+        .product-category-box{
+            justify-content: flex-end;
+            gap:5px;
         }
         .product-category-box > p{
             font-size: 30px;
+            padding:0;
+            color: black;
+            
+        }
+        .product-category-box::before{
+            width: 95%;
+
         }
 
             /*Header*/

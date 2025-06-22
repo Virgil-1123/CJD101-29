@@ -1064,7 +1064,7 @@ html{
             display: flex;
             justify-content: center;
             position: relative;
-            max-width: 1920px;
+            /* max-width: 1920px; */
             
         }
         .product-category-box::before{
@@ -1073,7 +1073,7 @@ html{
             width:70%;
             height: 1.5px;
             bottom: 0;
-            right: 0;
+            right: 10%;
             background-color: black;
             z-index: 1 ;
         }
