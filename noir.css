@@ -1110,6 +1110,7 @@ html{
             /* 移除預設的箭頭樣式*/
             border: 1.5px solid black;
             border-bottom: transparent;
+            background-color: white;
             
         }
 
