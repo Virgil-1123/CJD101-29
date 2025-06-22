@@ -415,6 +415,22 @@
         /* display: block; */
     }
 
+
+    /* 購物車葉面 */
+    .product-info p{
+        font-size: 16px;
+    }
+    .item-total-box p{
+        font-size: 20px;
+    }
+    .check-out-step-btn{
+        width:150px;
+        margin: 15px;
+        font-size: 20px;
+    }
+    .continue-shopping-btn{
+        margin-right: 15px; 
+    }
 }
 
 

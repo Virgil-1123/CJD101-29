@@ -1380,7 +1380,7 @@ html{
 .quantity-selector {
     display: flex; 
     align-items: center; 
-    width: 150px; /* 根據需求調整總寬度 */
+    width: 100px; 
     max-height: 43px;
 }
 .quantity-minus,
@@ -1644,8 +1644,14 @@ html{
 .cart-board{
         max-width:1200px;
         margin: 150px auto;
-        
+        width: 100%;
+        height: auto;
     }
+.product-info img{
+    max-width: 285px;
+    width: 100%;
+    height: auto;
+}
 .cart-board table{
         width: 100%;
         margin-bottom: 30px;
@@ -1653,9 +1659,10 @@ html{
 }
 .cart-board th,
 .cart-board td {
-        padding: 15px; /* 內邊距 */
-        text-align: left; /* 預設文字左對齊 */
-        border-bottom: 1px solid black; /* 底部細線 */
+        padding: 15px;
+        text-align: left; 
+        border-bottom: 1px solid black; 
+        min-width: 80px;
 }
 .cart-board th {
     font-weight: normal;
@@ -1712,15 +1719,14 @@ html{
         height: 90px;
         cursor: pointer;
         padding: 0; 
-        border-radius: 30px;
         border: none;
         font-size: 24px;
-        transition:transform 1s ease, border-radius 1s ease;
+        transition:background-color 0.5s ease;
     }
 
 .check-out-step-btn:hover{
         background-color:#636363;
-        border-radius: 0;
+
     }
 .continue-shopping-btn{
         width: 60px;
@@ -1738,6 +1744,8 @@ html{
         transform: scale(1.1);
         opacity: 75%;
     }
+
+
 
 /* Account */
 .account-board{
