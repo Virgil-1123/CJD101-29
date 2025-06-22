@@ -923,11 +923,11 @@ html{
 }
 .merchandise-1th-band{
     font-size: 24px;
-    margin:0 0 10px 5px ;
+    margin:0 0 10px 15px ;
 }
 .merchandise-1th-name, .merchandise-1th-price{
     font-size: 20px;
-    margin: 0 0 15px 5px;
+    margin: 0 0 15px 15px;
 }
 
 .pagination-merchandise{
@@ -1070,10 +1070,10 @@ html{
         .product-category-box::before{
             content: "";
             position: absolute;
-            width:70%;
+            width:60%;
             height: 1.5px;
             bottom: 0;
-            right: 10%;
+            right: 18%;
             background-color: black;
             z-index: 1 ;
         }
