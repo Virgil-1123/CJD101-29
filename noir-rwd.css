@@ -371,17 +371,19 @@
             margin-right: 0;
         }
         .product-category-select{
-            font-size: 20px;
+            font-size: 10px;
             color: black;
+            max-width: 95px;
         }
         .product-category-box{
             justify-content: flex-end;
             gap:5px;
         }
         .product-category-box > p{
-            font-size: 30px;
+            font-size: 15px;
             padding:0;
             color: black;
+            align-self: center;
             
         }
         .product-category-box::before{
