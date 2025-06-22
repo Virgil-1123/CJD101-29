@@ -21,6 +21,7 @@
     }
 
 
+
     /* 關於我們 */
     .about-us-line-h{
     height: 50%;
@@ -148,6 +149,10 @@
     }
     .index-about-us a{
         margin: 0 30px;
+    }
+    .index-new-arrival-box{
+        display: flex;
+        
     }
 
 }
