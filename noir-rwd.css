@@ -436,6 +436,16 @@
     .continue-shopping-btn{
         margin-right: 15px; 
     }
+    .item-delete-btn{
+        color: black;
+    }
+    .check-out-step-btn{
+        color: black;
+    }
+
+    .login-btn{
+        color: black;
+    }
 }
 
 
