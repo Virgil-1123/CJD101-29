@@ -945,6 +945,7 @@ html{
     transition: text-decoration 0.3s ease , transform 0.3s ease ;
     cursor: pointer;
     font-size: 20px;
+    color:black;
 }
 .pagination-merchandise button:hover{
     text-decoration: underline;
@@ -1397,6 +1398,7 @@ html{
     cursor: pointer;
     flex-shrink: 0; /* 防止按鈕被縮小 */
     transition: background-color 0.2s ease;
+    color:black;
 }
 .quantity-minus:hover,
 .quantity-plus:hover {
@@ -1629,6 +1631,7 @@ html{
     background-color: transparent;
     transition: text-decoration 0.3s ease , transform 0.3s ease ;
     cursor: pointer;
+    color: black;
 }
 .pagination button:hover{
     text-decoration: underline;
