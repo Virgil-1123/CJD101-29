@@ -94,6 +94,7 @@ html{
     padding: 30px;
     position: fixed;
     z-index: 2;
+    display: none;
     }
     .line .menu,
     .line .menu::before,
@@ -317,6 +318,10 @@ html{
 .index-new-arrival-img-4{
     width: 100%;
     height: auto;
+    transition: opacity 0.3s ease;
+}
+.index-new-arrival-img-1:hover, .index-new-arrival-img-2:hover, .index-new-arrival-img-3:hover, .index-new-arrival-img-4:hover{
+   opacity: 70%; 
 }
 
 
@@ -1111,7 +1116,7 @@ html{
 
 .about-us-board{
     max-width: 1200px;
-    margin:100px auto; 
+    margin:150px auto; 
 }
 .about-us-board-top{
     display: grid;
@@ -1463,6 +1468,8 @@ html{
     display: block;
     position: relative;
     margin-top: 150px;
+    font-weight: normal;
+    letter-spacing: 5px;
 }
 .relative-title::before{
     content: "";

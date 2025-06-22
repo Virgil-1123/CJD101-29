@@ -264,7 +264,9 @@
     .product-detail-board-top-right p,.product-detail-board-top-right {
         margin-left: 10px;
     }
-
+    .product-detail-board-top-right h2{
+        margin-left: 10px;
+    }
 
 
         /* 最新消息 */
@@ -411,8 +413,11 @@
         display: none;
     }
 
-    .nav-list{
-        /* display: block; */
+    .tab_container .tab_list_block ul.tab_list > li > a{
+        font-size: 12px;
+    }
+    .line{
+        display: block;
     }
 
 

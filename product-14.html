@@ -124,66 +124,6 @@
     cursor: crosshair; 
 }
 
-
-
-/* 容器樣式 */
-.index-new-arrival-box {
-    display: flex; /* 或 grid, 根據您的佈局需求 */
-    justify-content: space-around; /* 讓卡片之間有空間 */
-    flex-wrap: wrap; /* 如果空間不足，讓卡片換行 */
-    gap: 20px; /* 卡片間距 */
-    padding: 20px;
-}
-
-/* 每個商品卡片的樣式 */
-.product-item {
-    position: relative; /* 關鍵：讓 product-name 可以絕對定位在其內部 */
-    display: block; /* 確保 a 標籤是塊級元素，可以設置寬高 */
-    width: 200px; /* 範例寬度，根據您的設計調整 */
-    overflow: hidden; /* 防止內容溢出 */
-    text-decoration: none; /* 移除連結下劃線 */
-    color: inherit; /* 繼承父元素文字顏色 */
-    border: 1px solid #eee; /* 可選：添加邊框 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 可選：添加陰影 */
-    transition: transform 0.3s ease; /* 鼠標懸停時的過渡效果 */
-}
-
-.product-item:hover {
-    transform: translateY(-5px); /* 鼠標懸停時輕微上移 */
-}
-
-/* 圖片樣式 */
-.index-new-arrival-img {
-    width: 100%; /* 圖片填滿卡片寬度 */
-    height: auto; /* 保持圖片比例 */
-    display: block; /* 移除圖片底部的空隙 */
-}
-
-/* 商品名稱的樣式 */
-.product-name {
-    position: absolute; /* 相對於 .product-item 定位 */
-    bottom: 0; /* 讓它位於圖片下方 */
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
-    color: white;
-    text-align: center;
-    padding: 10px 5px;
-    box-sizing: border-box; /* 讓 padding 不增加寬度 */
-    opacity: 0; /* 初始狀態隱藏 */
-    visibility: hidden; /* 初始狀態隱藏 */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* 過渡效果 */
-    /* 確保名稱在圖片上方，如果圖片是純圖片沒有padding的話 */
-    transform: translateY(100%); /* 讓它完全移出底部 */
-}
-
-/* 當 product-item 被 hover 時，顯示 product-name */
-.product-item:hover .product-name {
-    opacity: 1; /* 顯示 */
-    visibility: visible; /* 顯示 */
-    transform: translateY(0); /* 移回原位 */
-}
-
 </style>
 
 
@@ -191,28 +131,230 @@
 
 <body>
 
+    <header class="noir-header">
+        <div class="header-balance">
+                    <nav class="nav-box">
+    <input type="checkbox" id="menu">
+    <label for="menu" class="line">
+        <div class="menu"></div>
+    </label>
 
-<div class="index-news-arrival-board">
-    <div class="index-new-arrival-box">
-        <a href="product-6.html" class="product-item"> <img class="index-new-arrival-img" src="index-pic-1 .png" alt="Ann分層皮革西裝外套">
-            <div class="product-name">Ann分層皮革西裝外套</div> </a>
+    <div class="menu-list">
+        <ul>
+        <li><a href="About US.html">關於我們</a></li>
+        <li><a href="Acounnt.html">會員中心</a></li>
+        <li><a href="Latest-news.html">最新消息</a></li>
+        <li><a href="Merchandise-list.html">商品總覽</a></li>
+        </ul>
+    </div>
+    </nav>
+</div>
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="About US.html" class="nav-item">關於我們</a>
+                    <a href="Acounnt.html" class="nav-item">會員中心</a>
+                </div>
 
-        <a href="product-12.html" class="product-item">
-            <img class="index-new-arrival-img" src="index-pic-2.png" alt="PB皮背心">
-            <div class="product-name">PB皮背心</div>
-        </a>
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="LOGO圖">
+                    </a>
+                </div>
 
-        <a href="product-9.html" class="product-item">
-            <img class="index-new-arrival-img" src="index-pic-3.png" alt="AT皮外套">
-            <div class="product-name">AT皮外套</div>
-        </a>
+                <div class="nav-right">
+                    <a href="Latest-news.html" class="nav-item">最新消息</a>
+                    <a href="Merchandise-list.html" class="nav-item">商品總覽</a>
+                </div>
+            </nav>
 
-        <a href="product-1.html" class="product-item">
-            <img class="index-new-arrival-img" src="index-pic-4.png" alt="M+FG外套">
-            <div class="product-name">M+FG外套</div>
-        </a>
+        <div class="index-icon-box">
+            <a class="search" href="">
+                <img src="icon-search.svg" alt="搜尋">
+            </a>
+            <a class="account" href="Acounnt.html">
+                <img src="icon_account.svg" alt="我的帳戶">
+            </a>
+            <a class="cart" href="Cart.html">
+                <img src="icon-cart.svg" alt="購物車">
+            </a>
+        </div> 
+    </header>
+
+
+
+<div class="product-detail-board">
+    <div class="product-detail-board-top">
+<div class="product-detail-board-top-left">
+    <div class="product-detail-board-pic-box image-container"> <img id="main_pic" src="JPG-90-1.jpg" alt="單寧外套">
+        <div id="showBox" class="zoom-area"></div> </div>
+
+    <div class="product-detail-board-other-pics">
+        <div class="product-other-pic-box">
+            <img class="minor_pic" src="JPG-90-1.jpg" data-full-image="JPG-90-1.jpg" alt="商品細節">
+            <img class="minor_pic" src="JPG-90-2.jpg" data-full-image="JPG-90-2.jpg" alt="商品細節">
+            <img class="minor_pic" src="" data-full-image="" alt="商品細節">
+            <img class="minor_pic" src="" data-full-image="" alt="商品細節">
+        </div>
     </div>
 </div>
+
+                <div class="product-detail-board-top-right">
+            <h2>Jean Paul Gaultier</h2>
+            <p class="product-detail-name
+            ">太陽眼鏡</p>
+            <p class="product-detail-size">Size:M</p>
+            <p class="product-detail-price">$7,000</p>
+
+            <div class="quantity-selector">
+            <button class="quantity-minus" aria-label="減少數量">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="1">
+            <button class="quantity-plus" aria-label="增加數量">+</button>
+            </div>
+
+            <div class="button-box">
+            <button class="add-to-cart-button">
+                加入購物車
+            </button>
+<svg id="heart"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+
+        </div>
+
+            <p class="product-shoulder">肩寬Shoulder：41cm</p>
+            <p class="product-pit">胸寬Pit to pit：47cm</p>
+            <p class="product-length">衣長Length：67/69cm</p>
+            <p class="product-sleeve">袖長Sleeve：31cm</p>
+            
+    </div>
+    
+    </div>
+</div>
+
+
+        <div class="tab_container">
+            <div class="tab_list_block">
+                <ul class="tab_list">
+                    <li>
+                        <a href="#" data-target="tab1" class="tab">商品介紹</a>
+                    </li>
+                    <li>
+                        <a href="#" data-target="tab2" class="tab -on">注意事項</a>
+                    </li>
+                    <li>
+                        <a href="#" data-target="tab3" class="tab">退換須知</a>
+                    </li>
+                </ul>
+        </div>
+
+        <div class="tab_contents">
+
+            <div class="tab tab1 -on">
+            肩寬Shoulder：41cm<br>
+
+            胸寬Pit to pit：47cm<br>
+
+            衣長Length：67/69cm<br>
+
+            袖長Sleeve：31cm
+            
+            </div>
+
+            <div class="tab tab2">
+            注意事項<br>
+• 選擇超商取貨付款未取件時將加入黑名單請留意到貨通知。<br>
+• 網站商品皆為早期老品，二手選品必定有使用上的痕跡，這都是歲月遺留下來的回憶，若無法接受者，請考慮清楚再下單。<br>
+• 商品已洗滌處理，請放心購入。<br>
+• 因螢幕彩度不同，照片呈現會有些微色差，均以實品為主。<br>
+• 請詳細參考產品尺碼數據，匯款及下訂單後商品一律不做退款及退換貨處理。<br>
+• 非瑕疵說明：鈕釦輕微鬆動、車縫線頭、未剪開之釦眼或口袋，經商品說明人為使用所造成的破損或下水之褪色 / 染色。<br>
+• 退換商品必須保持原樣、未下水。寄回後，如有任何異味或是人為使用痕跡...等，恕不予退換貨。<br>
+• 若商品與想像不符、不合適、色差、想更換尺碼等問題恕不提供退換貨。
+            </div>
+
+            <div class="tab tab3">
+            運送及退換貨須知<br><br>
+            
+
+親愛的顧客，感謝您選擇我們的網站購物！為了讓您的購物體驗更為順利，請您詳閱以下運送及退換貨的相關規定：<br><br>
+
+1. 運送範圍
+我們提供台灣至國際的運送服務。請注意，所有國際運送可能會因目的地國家不同而有所延遲，具體運送時間請依照您所在地區的配送服務商所提供的時間為準。<br><br>
+
+2. 退換貨規範
+我們致力於為您提供優質商品，並希望您對購買的商品感到滿意。若您對收到的商品有任何疑慮，請參考以下退換貨條件：<br><br>
+
+免費退換貨情況：
+商品尺寸丈量錯誤 寄錯商品（例如您訂購的商品與實際收到的商品不符）
+若符合以上條件，您可享有免費退貨服務，並且我們會負擔回程運費。<br><br>
+
+非免費退換貨情況：
+若您因其他原因（例如改變心意、商品不符合個人需求等）要求退換貨，您需負擔運費並按照退換貨政策進行處理。<br><br>
+
+3. 退貨流程
+請您在收到商品後7天內聯絡我們的客服部門，提供您的訂單編號、問題商品的照片以及退換貨的原因。
+我們會在確認退換貨的條件後，提供具體的退換貨指示與地址。
+商品必須保持未使用、未拆封及完整包裝，並附上購買憑證。<br><br>
+
+4. 注意事項
+商品退換時，請確保包裝完整，避免商品損壞。
+若退貨商品符合免費退貨條件，我們將安排退款至原付款方式。
+若您對退換貨政策有任何疑問，請隨時聯絡我們的客服團隊，我們將竭誠為您服務。
+
+            </div>
+        </div>
+
+        </div>
+
+
+    
+<h3 class="relative-title">關聯商品</h3>
+    <div class="product-board-bottom swiper" id="product-board-bottom">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="product-6.html"><img src="Ann-1.jpg" alt=""></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="product-12.html"><img src="PB-1.jpg" alt=""></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="product-13.html"><img src="CDG-1.jpg" alt=""></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="product-15.html"><img src="JPG-me-1.jpg" alt=""></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="product-14.html"><img src="JPG-90-1.jpg" alt=""></a>
+            </div>
+        </div> <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>    
+
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-content-address">
+                店址:320桃園市中壢區復興路46號9樓
+            </div>
+            <div class="footer-content-business-hour">
+                營業時間:11:00-21:00
+            </div> 
+            <div class="footer-content-rule">
+                購物須知 隱私政策
+            </div>
+            <div class="footer-content-icon">
+                <a href="">
+                    <img src="Line.svg" alt="Line連結"></img></a>
+                <a href="">
+                    <img src="Google.svg" alt="谷哥連結">
+                </a>
+                <a href="">
+                    <img src="Instagram.svg" alt="IG連結">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
 
 
 <script src="Swiper11.2.8.js"></script>
