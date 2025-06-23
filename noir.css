@@ -148,7 +148,7 @@ html{
     }
 
     .menu-list {
-    width: 0.1px;
+    width: 0;
     height: 100vh;
     background: white;
     padding-top: 60px;
